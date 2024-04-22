@@ -13,11 +13,13 @@ import java.io.IOException;
 @WebServlet(name = "responseJsonServlet", urlPatterns = "/response-json")
 public class ResponseJsonServlet extends HttpServlet {
 
+    // json <-> 자바 객체 변환을 위한 라이브러리
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //Content-Type: application/json
+        //Content-Type: application/json -> utf-8 고정이므로 뒤에 charset=utf-8 붙이는건 파라미터를 추가한거임
+        // 컨텐츠타입이 json임
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
 
@@ -26,6 +28,7 @@ public class ResponseJsonServlet extends HttpServlet {
         helloData.setAge(20);
 
         //{"username":"kim", "age":20}
+        // 자바 객체를 JSON 문자로 변환
         String result = objectMapper.writeValueAsString(helloData);
         response.getWriter().write(result);
     }

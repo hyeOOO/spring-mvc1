@@ -15,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 public class RequestBodyStringServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // HTTP 메시지 바디의 단순한 텍스트 메시지를 InputStream을 통해 담아서 읽을 수 있음.
+        // InputStream은 byte코드를 반환하므로 우리가 읽을 수 있는 utf-8로 전환해야한다.
         ServletInputStream inputStream = request.getInputStream();
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
 

@@ -25,6 +25,7 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
         ControllerV4 controller = (ControllerV4) handler;
 
         Map<String, String> paramMap = createParamMap(request);
+        // 모델을 핸들에서 선언해서 파라미터로 넘기면서 ModelView에 model 데이터를 저장할 수 있음
         HashMap<String, Object> model = new HashMap<>();
 
         String viewName = controller.process(paramMap, model);

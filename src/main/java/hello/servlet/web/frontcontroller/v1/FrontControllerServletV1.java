@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // /front-controller/v1/* -> /front-controller/v1를 포함해서 v1/ 뒤의 어떤 주소가 와도 이 서블릿이 호출되게끔함
+// 프론트컨트롤러 - 요청에 맞는 컨트롤러를 찾아서 호출(디스패처 서블릿)
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
 

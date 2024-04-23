@@ -39,6 +39,7 @@ public class FrontControllerServletV4 extends HttpServlet {
         }
 
         Map<String, String> paramMap = createParamMap(request);
+        // 모델객체를 프론트 컨트롤러에서 생성 후 파라미터로 넘김으로써 각 컨트롤러의 비즈니스 실행 후 담긴 모델 데이터를 MyView를 통해 꺼낼 수 있음.
         Map<String, Object> model = new HashMap<>();
 
         String viewName = controller.process(paramMap, model);

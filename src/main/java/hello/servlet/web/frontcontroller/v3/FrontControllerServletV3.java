@@ -58,6 +58,7 @@ public class FrontControllerServletV3 extends HttpServlet {
     private Map<String, String> createParamMap(HttpServletRequest request) {
         // 디테일한 로직이므로 레벨이 맞지 않아 메소드 분리 필요
         Map<String, String> paramMap = new HashMap<>();
+        //paramMap에 파라미터 데이터들 저장(ex. username, age)
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
         return paramMap;
